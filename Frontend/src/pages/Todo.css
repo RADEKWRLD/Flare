@@ -1,0 +1,500 @@
+.content-area {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#todoPage-div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* 标题固定在父容器顶部 */
+#todo-title-div {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 10;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* 标题文字样式 */
+#todo-title-h2 {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+    border-bottom: 1px dashed rgb(130, 130, 130);
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: ellipsis;
+}
+
+
+
+/* 中间内容可滚动 */
+.todo-content {
+    flex: 1;
+    padding: 1rem;
+}
+
+/* todo 内容样式 */
+.todo-content-item {
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    padding: 1.5rem;
+    width: 50vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.todo-content-settings-button {
+    position: absolute;
+    cursor: pointer;
+    right: 1em;
+    top: 1em;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 菜单样式 */
+#content-settings-menu {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 0.5rem;
+    border-radius: 4px;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    transform: translate(1rem, 3rem);
+    gap: 0.5rem;
+}
+
+#content-settings-rename-div,
+#content-settings-delete-div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#content-settings-rename-div:hover,
+#content-settings-delete-div:hover {
+    background-color: #f0f0f0;
+}
+
+#content-settings-rename-icon,
+#content-settings-delete-icon {
+    width: 20px;
+    height: 20px;
+}
+
+#content-settings-delete-icon,
+#content-settings-delete-span {
+    color: red;
+}
+
+/*文字区域*/
+.todo-content-text-div {
+    margin-bottom: 1em;
+    border-bottom: 1px solid #6666669e;
+}
+
+.todo-content-text {
+    white-space: pre-wrap;
+    font-size: 1.5rem;
+}
+
+.todo-img {
+    max-width: 350px;
+    max-height: 350px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.todo-content-img-div img {
+    width: auto;
+    height: auto;
+    max-width: 15rem;
+    /* 最大宽度 */
+    max-height: 15rem;
+    /* 最大高度 */
+    object-fit: cover;
+    /* 裁切填充 */
+    border-radius: 6px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.todo-content-img-div img:hover {
+    transform: scale(1.05);
+}
+
+.todo-content-wrapper-main-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap
+}
+
+.file-card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0.3rem 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: #fafafa;
+}
+
+.file-icon-div {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+}
+
+.file-icon {
+    width: 20px;
+    height: 20px;
+    color: #666;
+}
+
+.file-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    flex: 1;
+}
+
+.file-name {
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-size {
+    color: #999;
+    font-size: 0.75rem;
+}
+
+.file-card .file-icon-download {
+    border: none;
+    box-sizing: border-box;
+    background: none;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+.todo-file-link {
+    margin-right: 10px;
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/*表格css*/
+.todo-content-text-div table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.todo-content-text-div th,
+.todo-content-text-div td {
+    border: 1px solid #ddd;
+    padding: 6px 8px;
+}
+
+.todo-content-text-div th {
+    background-color: #f5f5f5;
+}
+
+.todo-content-textarea {
+    width: 100%;
+    border: 0px;
+    outline: none;
+    margin-top: 2rem;
+}
+
+/*确认模态框*/
+.todo-content-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-buttons {
+  display: flex;
+  justify-content: flex-end; /*右对齐*/
+  margin-top: 6px;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.edit-confirm,
+.edit-cancel {
+  padding: 8px 24px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.edit-confirm {
+  background-color: #FF9B00;
+  color: white;
+}
+
+.edit-cancel {
+  background-color: #c7c7c7;
+  color: white;
+}
+
+
+/*预览区域*/
+#todo-input-content {
+    position: sticky;
+    bottom: 2.5rem;
+    margin-bottom: 2.5rem;
+    margin: 0 auto;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 50px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+
+/* 输入区域 wrapper */
+#todo-input-wrapper {
+    position: relative;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+
+
+/* textarea */
+#todo-input-textarea {
+    flex: 1;
+    width: 35vw;
+    height: 6vh;
+    margin: 0;
+    padding: 0 0.75rem;
+    border: none;
+    outline: none;
+    resize: none;
+    background-color: transparent;
+    line-height: 6vh;
+    font-size: calc(6vh * 0.4);
+    font-weight: 500;
+    text-align: left;
+    font-family: 'MozillaText';
+    transition: all 0.3s ease;
+}
+
+/* 上传 & 提交图标按钮，流动渐变 */
+#todo-input-upload-icon-div,
+#todo-input-submit-icon-div {
+    border: none;
+    border-radius: 50%;
+    padding: 0.3rem;
+    width: 30px;
+    height: 30px;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    background: linear-gradient(270deg, #FF9B00, #FFC900);
+    background-size: 800% 800%;
+    animation: gradientMove 8s ease infinite;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#todo-input-upload-icon-div:hover,
+#todo-input-submit-icon-div:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* 禁用状态 */
+#todo-input-submit-icon-div.disabled {
+    background: linear-gradient(270deg, #929292, #929292);
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    animation: none;
+}
+
+#todo-input-submit-icon-div.disabled:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 流动渐变动画 */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 上传预览样式 */
+.preview-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    /* 多图换行 */
+    gap: 0.5rem;
+    /* 图与图间距 */
+    margin-left: 1rem;
+    max-height: 23rem;
+    /* 预览区最大高度 */
+    overflow-y: auto;
+    /* 超出出现滚动条 */
+    box-sizing: border-box;
+}
+
+.preview-item {
+    position: relative;
+    border-radius: 50px;
+    overflow: hidden;
+    /* 图片溢出裁切 */
+    flex-shrink: 0;
+    /* 不被压缩 */
+}
+
+/* 动态图片缩放 */
+.preview-item img {
+    width: auto;
+    height: auto;
+    max-width: 10rem;
+    /* 最大宽度 */
+    max-height: 10rem;
+    /* 最大高度 */
+    object-fit: cover;
+    /* 裁切填充 */
+    border-radius: 6px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.preview-item img:hover {
+    transform: scale(1.05);
+    /* 鼠标悬停放大 */
+}
+
+/* 文件卡片基础样式 */
+.preview-item.file-card {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fafafa;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.2s ease;
+    max-width: 320px;
+}
+
+.preview-item.file-card:hover {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 文件图标 */
+.file-icon-div {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eef2ff;
+    border-radius: 6px;
+}
+
+.file-icon {
+    width: 30px;
+    height: 30px;
+    color: #4f46e5;
+}
+
+/* 文件信息 */
+.file-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.file-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-size {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+
+/* 删除按钮 */
+.preview-item button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

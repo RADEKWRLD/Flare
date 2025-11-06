@@ -1,0 +1,24 @@
+:root body,html{
+    margin: 0;
+    padding: 0;
+}
+
+.layout-container {
+  display: flex;
+  height: 100vh; /* 视口高度全满 */
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.content-area {
+  flex: 1; /* 剩余空间全部占用 */
+  padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

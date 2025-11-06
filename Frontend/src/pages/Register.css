@@ -1,0 +1,103 @@
+/* 注册页面最外层 */
+#register-page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 注册主要内容容器 */
+#register-main-div {
+    background-color: #fff;
+    padding: 2.5rem 3rem;
+    border-radius: 12px;
+    width: 350px;
+    text-align: left;
+}
+
+/* 标题 */
+#register-h2 {
+    font-size: 1.8rem;
+    color: #FF9B00;
+    margin-bottom: 1rem;
+}
+
+#register-h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+#register-h3 a {
+    color: #FF9B00;
+    text-decoration: none;
+    margin-left: 0.25rem;
+}
+
+#register-h3 a:hover {
+    text-decoration: underline;
+}
+
+/* 输入框容器 */
+#register-username-wrapper,
+#register-email-wrapper,
+#register-password-wrapper,
+#register-confirm-password-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+    transition: border-color 0.3s;
+}
+
+#register-username-wrapper:focus-within,
+#register-email-wrapper:focus-within,
+#register-password-wrapper:focus-within,
+#register-confirm-password-wrapper:focus-within {
+    border-color: #FF9B00;
+}
+
+/* 输入框标签 */
+#register-username-span span,
+#register-email-span span,
+#register-password-span span,
+#register-confirm-password-span span {
+    width: 60px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* 输入框本体 */
+#register-username-input input,
+#register-email-input input,
+#register-password-input input,
+#register-confirm-password-input input {
+    box-sizing: border-box; 
+    border: 1px solid #ddd;
+    width: 100%;
+    height: 3rem;
+    flex: 1;
+    font-size: 0.95rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+
+/* 注册按钮 */
+#register-btn {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #FF9B00;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#register-btn:hover {
+    background-color: #e68a00;
+}

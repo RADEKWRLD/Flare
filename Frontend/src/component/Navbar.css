@@ -1,0 +1,330 @@
+/* Navbar.css */
+#web-content {
+    transform: translateX(-1rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#web-icon {
+    transform: translateY(-0.2rem);
+    width: 3rem;
+    height: 3rem;
+}
+
+#web-title {
+    font-size: 2rem;
+}
+
+nav {
+    width: 250px;
+    height: 100vh;
+    border-right: 1px solid #ddd;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* 功能区 */
+.function-bar {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.new-todo {
+    padding: 0.5rem 0.8rem;
+    background-color: #e1e1e1;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    font-weight: 500;
+    color: #444;
+    transition: background-color 0.2s ease;
+}
+
+.new-todo:hover {
+    background-color: #cfcfcf;
+}
+
+.search-todo {
+    padding: 0.5rem 0.8rem;
+    background-color: #e1e1e1;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+    color: #444;
+    transition: background-color 0.2s ease;
+}
+
+.search-todo:hover {
+    background-color: #cfcfcf;
+}
+
+/* 待办列表 */
+.todos-list {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 每个todo */
+.todo-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #333;
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 0.3rem;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+
+.todo-item:hover {
+    background-color: #e6e6e6;
+}
+
+/* 选中态 */
+.todo-item.active {
+    background-color: #FF9B00;
+    color: white;
+    font-weight: 600;
+}
+
+.todo-title {
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    flex: 1;
+    padding-right: 1.5rem;
+    /* mask 遮罩 */
+    -webkit-mask-image: linear-gradient(to left, transparent, black 30%);
+    mask-image: linear-gradient(to left, transparent, black 30%);
+}
+
+/* todo设置 */
+.todo-settings-button {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 菜单样式 */
+#todo-settings-menu {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 0.5rem;
+    border-radius: 4px;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#todo-settings-rename-div,
+#todo-settings-delete-div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#todo-settings-rename-div:hover,
+#todo-settings-delete-div:hover {
+    background-color: #f0f0f0;
+}
+
+#todo-settings-rename-icon,
+#todo-settings-delete-icon {
+    width: 20px;
+    height: 20px;
+}
+
+#todo-settings-delete-icon,
+#todo-settings-delete-span {
+    color: red;
+}
+
+
+/* 重命名输入框 */
+.todo-title-input {
+    flex: 1;
+    box-sizing: border-box;
+    width: 100%;
+    border: 0;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    background: transparent;
+    color: black;
+    outline: none;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.todo-item.active .todo-title-input {
+    font-weight: 500;
+    color: white;
+}
+
+
+/* 删除确认弹框 */
+.delete-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    /* 兼容 Safari */
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.delete-modal-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.delete-modal-content h3 {
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.delete-modal-content p {
+    margin: 0 0 1.5rem;
+    color: #666;
+}
+
+.delete-modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.delete-modal-confirm,
+.delete-modal-cancel {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.delete-modal-confirm {
+    background-color: #FF9B00;
+    color: white;
+}
+
+.delete-modal-confirm:hover {
+    background-color: #d07d02
+}
+
+.delete-modal-cancel {
+    background-color: #e1e1e1;
+    color: #444;
+}
+
+.delete-modal-cancel:hover {
+    background-color: #cfcfcf;
+}
+
+/*账号div*/
+#account-div {
+    display: flex;
+    align-items: center;
+}
+
+#account-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+#account-information {
+    margin-left: 0.5rem;
+}
+
+#account-name {
+    width: 90%;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#account-email {
+    width: 90%;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#account-email a {
+    text-decoration: none;
+    color: #FF9B00;
+}
+
+
+/*账号模态*/
+#account-menu {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    padding: 8px 0;
+}
+
+#account-menu-logout {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    cursor: pointer;
+    gap: 8px;
+}
+
+#account-menu-logout:hover {
+    background-color: #f5f5f5;
+}
+
+#account-menu-logout svg {
+    width: 20px;
+    height: 20px;
+}
+
+#account-icon {
+    cursor: pointer;
+}

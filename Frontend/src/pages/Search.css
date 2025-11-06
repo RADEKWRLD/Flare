@@ -1,0 +1,641 @@
+.search-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+}
+
+.search-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.search-header h1 {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+}
+
+.clear-btn {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.clear-btn:hover:not(:disabled) {
+    background-color: #ff5252;
+}
+
+.clear-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.messages-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 1vw 2vw 0 2vw;
+    margin-bottom: 20px;
+}
+
+.empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #666;
+    font-size: 16px;
+}
+
+.message {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message.user {
+    align-items: flex-end;
+}
+
+.message.ai {
+    align-items: flex-start;
+}
+
+.message-content {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    word-wrap: break-word;
+    line-height: 1.4;
+}
+
+.message.user .message-content {
+    background-color: #cccccc;
+    color: rgb(65, 65, 65);
+    font-weight: 500;
+    border-bottom-right-radius: 4px;
+    white-space: pre-wrap;
+}
+
+.message.ai .message-content {
+    background-color: transparent;
+    color: #333;
+    padding: 0;
+}
+
+/* Markdown样式 */
+.markdown-content {
+    margin: 0;
+}
+
+.markdown-content p {
+    margin-top: 0;
+    margin-bottom: 0.8em;
+}
+
+.markdown-content p:last-child {
+    margin-bottom: 0;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.markdown-content h1 {
+    font-size: 1.5em;
+}
+
+.markdown-content h2 {
+    font-size: 1.3em;
+}
+
+.markdown-content h3 {
+    font-size: 1.15em;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+    padding-left: 1.5em;
+    margin-top: 0;
+    margin-bottom: 0.8em;
+}
+
+.markdown-content li {
+    margin-bottom: 0.3em;
+}
+
+.markdown-content code {
+    font-family: monospace;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+
+.markdown-content pre {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 0.8em 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.markdown-content pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+.markdown-content a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.markdown-content a:hover {
+    text-decoration: underline;
+}
+
+.markdown-content blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding-left: 1em;
+    margin-left: 0;
+    color: #6a737d;
+}
+
+.markdown-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 0.8em;
+}
+
+.markdown-content table th,
+.markdown-content table td {
+    border: 1px solid #dfe2e5;
+    padding: 6px 13px;
+}
+
+.markdown-content table th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+}
+
+/* Markdown-it 扩展样式 */
+.markdown-content mark {
+    background-color: #ffeb3b;
+    padding: 2px 4px;
+    border-radius: 2px;
+}
+
+.markdown-content ins {
+    text-decoration: underline;
+    text-decoration-color: #4caf50;
+    text-decoration-thickness: 2px;
+}
+
+.markdown-content sub,
+.markdown-content sup {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.markdown-content sup {
+    top: -0.5em;
+}
+
+.markdown-content sub {
+    bottom: -0.25em;
+}
+
+.markdown-content .footnote-ref {
+    font-size: 0.75em;
+    vertical-align: super;
+}
+
+.markdown-content .footnotes {
+    border-top: 1px solid #dfe2e5;
+    margin-top: 2em;
+    padding-top: 1em;
+    font-size: 0.9em;
+}
+
+.markdown-content .footnotes ol {
+    padding-left: 1.5em;
+}
+
+.markdown-content dl {
+    margin: 0.8em 0;
+}
+
+.markdown-content dt {
+    font-weight: bold;
+    margin-top: 0.5em;
+}
+
+.markdown-content dd {
+    margin-left: 2em;
+    margin-bottom: 0.5em;
+}
+
+.message-time {
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+    padding: 0 8px;
+}
+
+.typing-indicator {
+    animation: blink 1s infinite;
+    color: #666;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 10px 0;
+    border-left: 4px solid #f44336;
+}
+
+.search-form {
+    background-color: transparent;
+    padding:0 20px 20px 20px;
+    margin: 0 10px 10px 10px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus {
+    border-color: #e08700;
+}
+
+.search-input:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.search-btn {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    min-width: 80px;
+}
+
+.search-btn:hover:not(:disabled) {
+    background-color: #e08700;
+}
+
+.search-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .search-container {
+        height: 100vh;
+    }
+
+    .search-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .search-header h1 {
+        font-size: 20px;
+    }
+
+    .message-content {
+        max-width: 90%;
+    }
+
+    .messages-container {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .search-form {
+        padding: 15px;
+        margin: 0 5px 5px 5px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .search-btn {
+        width: 100%;
+    }
+
+    .markdown-content pre {
+        max-width: 100%;
+    }
+}
+
+/* 数学公式样式 */
+.katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 0;
+    margin: 1em 0;
+    display: block !important;
+    text-align: center;
+}
+
+.katex {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.math-formula-block {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 5px;
+    padding: 25px 15px 15px;
+    margin: 2em 0;
+    overflow-x: auto;
+    display: block;
+    clear: both;
+    text-align: center;
+}
+
+.math-formula-block::before {
+    content: "公式";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #6b7280;
+    color: white;
+    padding: 2px 10px;
+    font-size: 12px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.math-formula-inline {
+    background-color: rgba(0, 0, 0, 0.03);
+    padding: 0 3px;
+    border-radius: 3px;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* 确保公式在移动设备上可以滚动 */
+.markdown-content .katex-display > .katex {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 5px; /* 为滚动条留出空间 */
+    white-space: nowrap;
+}
+
+/* 确保公式和段落之间有足够的间距 */
+.markdown-content p + .math-formula-block,
+.markdown-content .math-formula-block + p {
+    margin-top: 1.5em;
+}
+
+/* 修复公式中的换行问题 */
+.katex-html {
+    white-space: normal;
+}
+
+.header-label {
+    font-size: 0.7em;
+    color: #6b7280;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+.paragraph-break {
+    height: 1em;
+    display: block;
+    clear: both;
+}
+
+/* 确保段落有适当的间距 */
+.markdown-content p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+/* 确保换行符正确显示 */
+.markdown-content br {
+    display: block;
+    content: "";
+    margin-top: 0.5em;
+}
+
+.code-block-label {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    padding: 2px 10px;
+    font-size: 12px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-bottom: -5px;
+    margin-top: 1em;
+}
+
+/* 代码块增强样式 */
+.markdown-content pre.language-python,
+.markdown-content pre.language-javascript,
+.markdown-content pre.language-java,
+.markdown-content pre.language-cpp,
+.markdown-content pre.language-csharp {
+    position: relative;
+    padding-top: 30px;
+}
+
+.markdown-content pre.language-python::before {
+    content: "Python";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #4B8BBE;
+    color: white;
+    padding: 2px 10px;
+    font-size: 12px;
+    border-top-left-radius: 5px;
+}
+
+.markdown-content pre.language-javascript::before {
+    content: "JavaScript";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #F0DB4F;
+    color: black;
+    padding: 2px 10px;
+    font-size: 12px;
+    border-top-left-radius: 5px;
+}
+
+.markdown-content pre.language-java::before {
+    content: "Java";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #f89820;
+    color: white;
+    padding: 2px 10px;
+    font-size: 12px;
+    border-top-left-radius: 5px;
+}
+
+.markdown-content pre.language-cpp::before {
+    content: "C++";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #044F88;
+    color: white;
+    padding: 2px 10px;
+    font-size: 12px;
+    border-top-left-radius: 5px;
+}
+
+.markdown-content pre.language-csharp::before {
+    content: "C#";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #9B4F96;
+    color: white;
+    padding: 2px 10px;
+    font-size: 12px;
+    border-top-left-radius: 5px;
+}
+
+/* 滚动条样式 */
+.messages-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.messages-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* 会话通知样式 */
+.session-notification {
+    background-color: #fff8e1;
+    border-left: 4px solid #ffca28;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.session-notification p {
+    color: #5d4037;
+    margin: 0;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.session-notification p::before {
+    content: "⚠️";
+    margin-right: 8px;
+}
+
+/* 刷新通知样式 */
+.refresh-notification {
+    background-color: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.refresh-notification p {
+    color: #0d47a1;
+    margin: 0;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.refresh-notification p::before {
+    content: "🔄";
+    margin-right: 8px;
+}

@@ -1,0 +1,77 @@
+/* Newpage.css */
+
+.addTodo {
+    position: relative;
+    transform: translateY(-5vh);
+    margin: 2rem auto;
+    padding: 1rem;
+    /* 水平居中标题和内容 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#addTodo-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+    text-align: center;
+}
+
+#addTodo-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0.3rem 0.5rem;
+    background-color: #fff;
+    width: 40vw;
+    /* 宽度设为 30% 视口宽度 */
+    box-sizing: border-box;
+}
+
+#addTodo-input {
+    flex: 1;
+    font-size: 1rem;
+    padding: 0.6rem 0.8rem;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    min-width: 0;
+    /* 让输入框随容器缩放 */
+}
+
+#addTodo-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #FF9B00;
+    transition: color 0.3s ease;
+    flex-shrink: 0;
+}
+
+#addTodo-icon:hover {
+    color: #FF6D00;
+}
+
+#addTodo-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
+}
+
+#addTodo-icon:hover {
+    color: #FF6D00;
+}
+
+#addTodo-icon svg {
+    width: 24px;
+    /* 图标大小 */
+    height: 24px;
+    stroke-width: 2;
+}

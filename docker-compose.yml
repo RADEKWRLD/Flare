@@ -1,0 +1,78 @@
+version: '1.0'
+
+services:
+  # MongoDB 数据库
+  mongodb:
+    image: mongo:7.0
+    container_name: flare-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=todo_app
+    networks:
+      - flare-network
+
+  # Redis 缓存
+  redis:
+    image: redis/redis-stack-server:latest
+    container_name: flare-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - flare-network
+
+  # Backend 服务
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: flare-backend
+    restart: always
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./Backend/uploads:/app/uploads
+      - backend_cache:/root/.cache
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/
+      - DATABASE_NAME=todo_app
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - SECRET_KEY=5Ziuo3tKvjzcWehuvZKz
+      - DEEPSEEK_API_KEY=sk-2f6592b0c73f4575bb7bd7782f46c208
+      - MODEL_NAME=./bge-m3
+      - HF_ENDPOINT=https://hf-mirror.com
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - flare-network
+
+  # Frontend 服务
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: flare-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - flare-network
+
+volumes:
+  mongodb_data:
+  redis_data:
+  backend_cache:
+
+networks:
+  flare-network:
+    driver: bridge
