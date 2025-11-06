@@ -7,6 +7,14 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-7.0-green.svg)](https://www.mongodb.com/)
 [![Redis](https://img.shields.io/badge/Redis-Stack-red.svg)](https://redis.io/)
 
+
+### 系统架构图
+<img width="1919" height="1079" alt="Index" src="https://github.com/user-attachments/assets/707d64fd-a6e9-493e-af89-9530fe2d75bb" />
+
+<img width="1919" height="1079" alt="RAG" src="https://github.com/user-attachments/assets/ad19a8a8-26e7-4211-b53d-dd1de231ae13" />
+
+
+
 ## 📋 项目概述
 
 **Flare** 是一个文档管理系统，结合了待办事项管理、Markdown 编辑、多模态文件处理和 AI 驱动的语义搜索功能。系统采用 **Flask + React** 全栈架构，项目解耦，添加规范化代码格式，集成 **BGE-M3 向量模型**和 **DeepSeek 大语言模型**，实现了完整的 RAG系统。
@@ -50,12 +58,6 @@
 | **GSAP** | 3.13.0 | 动画库 |
 | **CodeMirror** | - | Markdown 编辑器 |
 | **react-markdown** | - | Markdown 渲染 |
-
-### 系统架构图
-<img width="1919" height="1079" alt="Index" src="https://github.com/user-attachments/assets/707d64fd-a6e9-493e-af89-9530fe2d75bb" />
-
-<img width="1919" height="1079" alt="RAG" src="https://github.com/user-attachments/assets/ad19a8a8-26e7-4211-b53d-dd1de231ae13" />
-
 
 ---
 
