@@ -52,10 +52,10 @@
 | **react-markdown** | - | Markdown 渲染 |
 
 ### 系统架构图
+<img width="1919" height="1079" alt="Index" src="https://github.com/user-attachments/assets/707d64fd-a6e9-493e-af89-9530fe2d75bb" />
 
-![58222c88bb43cba4583561b78d727e6f](C:\Users\a1691\Documents\xwechat_files\wxid_t1kzlyks5kdy12_6ad6\temp\RWTemp\2025-11\58222c88bb43cba4583561b78d727e6f.png)
+<img width="1919" height="1079" alt="RAG" src="https://github.com/user-attachments/assets/ad19a8a8-26e7-4211-b53d-dd1de231ae13" />
 
-![437e01bf9727198d5419f73823deb604](C:\Users\a1691\Documents\xwechat_files\wxid_t1kzlyks5kdy12_6ad6\temp\RWTemp\2025-11\437e01bf9727198d5419f73823deb604.png)
 
 ---
 
@@ -76,15 +76,18 @@
 
 在未做调优前，500个内容查询向量时间：
 
-![Before](D:\Practice\Project\Flare\Before.png)
+<img width="446" height="209" alt="Before" src="https://github.com/user-attachments/assets/178b029c-49a2-4186-ba8f-d0977e35f19c" />
+
 
 经过调优后，1万个内容查询向量时间：
 
-![After](D:\Practice\Project\Flare\After.png)
+<img width="443" height="214" alt="After" src="https://github.com/user-attachments/assets/ab575bc7-72de-4d0d-87a0-d37eee7d553f" />
+
 
 同时纯向量检索优化至2ms区间：
 
-![Retrive](D:\Practice\Project\Flare\Retrive.png)
+<img width="402" height="78" alt="Retrive" src="https://github.com/user-attachments/assets/d1af7ac3-68e6-44dd-aec3-46fb247c8e5f" />
+
 
 ---
 
