@@ -46,7 +46,7 @@ services:
       - REDIS_PORT=6379
       - SECRET_KEY=5Ziuo3tKvjzcWehuvZKz
       - DEEPSEEK_API_KEY=sk-2f6592b0c73f4575bb7bd7782f46c208
-      - MODEL_NAME=./bge-m3
+      - MODEL_NAME=/app/bge-m3
       - HF_ENDPOINT=https://hf-mirror.com
     depends_on:
       - mongodb
@@ -62,7 +62,7 @@ services:
     container_name: flare-frontend
     restart: always
     ports:
-      - "80:80"
+      - "8080:80"
     depends_on:
       - backend
     networks:

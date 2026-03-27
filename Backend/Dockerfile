@@ -2,6 +2,7 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
+RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list.d/debian.sources
 # 安装 PaddleOCR 需要的系统依赖
 RUN apt-get update && apt-get install -y \
     libgomp1 \
@@ -19,6 +20,9 @@ COPY requirements.txt .
 # 安装 Python 依赖（使用清华镜像加速）
 RUN pip install --no-cache-dir -r requirements.txt \
     -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 修复 FlagEmbedding 中缺失的 Optional 导入
+RUN sed -i '/^class BiTrainer/i from typing import Optional' /usr/local/lib/python3.10/site-packages/FlagEmbedding/BGE_M3/trainer.py
 
 # 复制应用代码
 COPY . .

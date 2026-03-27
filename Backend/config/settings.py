@@ -27,8 +27,7 @@ class DatabaseConfig:
 class AIconfig:
     deepseek_api_key: str = os.getenv('DEEPSEEK_API_KEY') or ""
     #向量嵌入模型
-    # model_name:str = os.getenv('MODEL_NAME', 'BAAI/bge-m3')
-    model_name:str = os.getenv('MODEL_NAME', './bge-m3')
+    model_name:str = os.getenv('MODEL_NAME', 'BAAI/bge-m3')
     #HuggingFace镜像地址
     hf_endpoint: str = os.getenv('HF_ENDPOINT', 'https://hf-mirror.com')
 
