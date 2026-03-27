@@ -24,10 +24,34 @@ class VectorService(BaseModel):
 
             # 设置HuggingFace镜像
             os.environ['HF_ENDPOINT'] = ai_config.hf_endpoint
-            
+
+            # 优先使用本地模型目录，找不到时回退到合法的远程仓库名
+            candidate_paths = [
+                ai_config.model_name,
+                '/app/bge-m3',
+                './bge-m3'
+            ]
+
+            model_source = None
+            use_local_model = False
+            for path in candidate_paths:
+                if path and os.path.isdir(path):
+                    model_source = path
+                    use_local_model = True
+                    break
+
+            if model_source is None:
+                model_source = 'BAAI/bge-m3'
+
+            # 仅本地模型时启用离线模式，避免远程仓库名在离线模式下被错误处理
+            if use_local_model:
+                os.environ['HF_HUB_OFFLINE'] = '1'
+            else:
+                os.environ.pop('HF_HUB_OFFLINE', None)
+
             # 加载向量模型
-            self._model = BGEM3FlagModel(ai_config.model_name, use_fp16=True)
-            print('向量模型加载成功')
+            self._model = BGEM3FlagModel(model_source, use_fp16=True)
+            print(f'向量模型加载成功: {model_source}')
     
     def encode_dense(self, texts: List[str], batch_size: int = 8, max_length: int = 2048) -> np.ndarray:
         """
