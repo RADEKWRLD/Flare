@@ -44,8 +44,8 @@ services:
       - DATABASE_NAME=todo_app
       - REDIS_HOST=redis
       - REDIS_PORT=6379
-      - SECRET_KEY=5Ziuo3tKvjzcWehuvZKz
-      - DEEPSEEK_API_KEY=sk-2f6592b0c73f4575bb7bd7782f46c208
+      - SECRET_KEY=${SECRET_KEY:?SECRET_KEY is required}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:?DEEPSEEK_API_KEY is required}
       - MODEL_NAME=/app/bge-m3
       - HF_ENDPOINT=https://hf-mirror.com
     depends_on:
